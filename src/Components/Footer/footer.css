@@ -1,0 +1,42 @@
+.footer {
+  background-color: rgb(170, 155, 146);
+  text-align: center;
+  margin-top: -1.5em;
+}
+
+.footer_horizontal_line {
+  width: 60%;
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.reserve_button {
+  background-color: rgb(219, 219, 218);
+  border: 1px solid #222222;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0.7em;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0.6em;
+  color: #14262e;
+  font-family: Marcellus, Noto Sans TC, sans-serif;
+}
+
+.social_media_icons {
+  color: #14262e;
+  font-size: 25px;
+}
+
+h1 {
+  color: #14262e;
+  font-family: Marcellus, Noto Sans TC, sans-serif;
+  padding-top: 0.5em;
+}
+
+h4 {
+  color: #14262e;
+  font-family: Marcellus, Noto Sans TC, sans-serif;
+}

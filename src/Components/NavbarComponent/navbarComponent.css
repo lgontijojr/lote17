@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.navbar_scroll {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  position: fixed;
+  background-color: rgb(238, 236, 233);
+  width: 100%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.logo_image {
+  height: 3em;
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+.social_media_icon_navbar {
+  margin-top: 0.35em;
+}

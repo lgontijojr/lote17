@@ -1,0 +1,7 @@
+.article {
+  display: flex;
+  justify-content: center;
+  margin: 10em;
+  gap: 5em;
+  align-items: flex-start;
+}

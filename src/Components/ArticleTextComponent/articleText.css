@@ -1,0 +1,17 @@
+.body_text {
+  font-family: Marcellus, Noto Sans TC, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.title_text {
+  font-family: Marcellus, Noto Sans TC, sans-serif;
+  font-size: 3em;
+  font-weight: 300;
+}
+
+.horizontal_line {
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+}

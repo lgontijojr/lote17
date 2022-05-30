@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  justify-content: center;
+  color: #14262e;
+  font-family: Marcellus, Noto Sans TC, sans-serif;
+  font-size: 1.2em;
+  list-style-type: none;
+  padding: 0;
+}
+
+.list_items {
+  margin: 1em;
+}
+
+.links {
+  text-decoration: none;
+}
+
+.links:visited {
+  color: black;
+}

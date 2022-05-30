@@ -1,0 +1,16 @@
+.menu_image {
+  height: 1500px;
+  margin-top: 7em;
+  margin-left: 6em;
+  margin-bottom: 2em;
+  opacity: 0.95;
+  border-radius: 0.3em;
+  box-shadow: 0em 0em 6em 0em #6f6f6f;
+}
+
+.menu_page_background {
+  background-image: url("../../img/main4.jpg");
+  background-position: left top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
