@@ -1,7 +1,43 @@
-.article {
-  display: flex;
-  justify-content: center;
-  margin: 10em;
-  gap: 5em;
-  align-items: flex-start;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+  .article {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 0;
+    margin: 3em 1em 3em 1em;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 650px) {
+  .article {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-row-gap: 0;
+    margin: 3em 1em 3em 1em;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+    max-width: 80%;
+    margin: 12em 1em 10em 10%;
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  .article {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 80%;
+    margin: 12em 1em 10em 10%;
+    gap: 5em;
+  }
 }

@@ -23,9 +23,33 @@
 .logo_image {
   height: 3em;
   margin-left: 1em;
-  margin-top: 0.5em;
+  margin-top: 0.4em;
 }
 
-.social_media_icon_navbar {
-  margin-top: 0.35em;
+.navbar_icon {
+  color: black;
+}
+
+.navbar_icon_button {
+  background-color: transparent;
+  border-style: none;
+  height: 3em;
+  margin-right: 1em;
+  margin-top: 0.9em;
+  cursor: pointer;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 650px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1220px) {
 }

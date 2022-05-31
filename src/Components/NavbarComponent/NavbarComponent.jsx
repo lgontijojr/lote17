@@ -4,33 +4,62 @@ import { NavLink } from "react-router-dom";
 import NavbarLinksComponent from "../NavbarLinksComponent/NavbarLinksComponent";
 
 import InstagramIcon from "@material-ui/icons/Instagram";
-import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/icons/Menu";
 
-import { logoImage1 } from "../../img/index";
+import { logoImage1, logoImage2 } from "../../img/index";
 
 import "./navbarComponent.css";
 
-function NavbarComponent() {
-  const [goingUp, setGoingUp] = useState(false);
-  const [navBarClassname, setNavbarClassname] = useState("navbar");
+const getWindowWidth = () => {
+  const { innerWidth: width } = window;
 
-  const prevScrollY = useRef(0);
+  return { width };
+};
+
+const openInNewTab = (url) => {
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
+const getCurrentScrollPosition = () => {
+  const { scrollY } = window;
+
+  return { scrollY };
+};
+
+function NavbarComponent() {
+  const [logoImage, setLogoImage] = useState(logoImage1);
+  const [navBarClassname, setNavbarClassname] = useState("navbar");
+  const [windowWidth, setWindowWidth] = useState(getWindowWidth());
+  const [isMobileView, setMobileView] = useState();
+  const [currentScrollPosition, setCurrentScrollPosition] = useState(
+    getCurrentScrollPosition()
+  );
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(getWindowWidth());
+
+      if (windowWidth.width < 650) {
+        setMobileView(true);
+      }
+      if (windowWidth.width < 750) {
+        setLogoImage(logoImage2);
+      } else {
+        setMobileView(false);
+        setLogoImage(logoImage1);
+      }
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, [windowWidth]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      let prevScrollYPosition = prevScrollY.current;
+      setCurrentScrollPosition(getCurrentScrollPosition());
 
-      if (prevScrollYPosition < currentScrollY && goingUp) {
-        setGoingUp(false);
-      }
-      if (prevScrollYPosition > currentScrollY && !goingUp) {
-        setGoingUp(true);
-      }
-
-      prevScrollYPosition = currentScrollY;
-
-      return currentScrollY < 20
+      currentScrollPosition.scrollY < 20
         ? setNavbarClassname("navbar")
         : setNavbarClassname("navbar_scroll");
     };
@@ -38,30 +67,32 @@ function NavbarComponent() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [goingUp]);
+  }, [currentScrollPosition]);
 
   return (
     <React.Fragment>
       <div className={navBarClassname}>
         <span className="desktop_logo">
           <NavLink to={{ pathname: "/" }}>
-            <img className="logo_image" src={logoImage1} alt="Logo" />
+            <img className="logo_image" src={logoImage} alt="Logo" />
           </NavLink>
         </span>
 
-        <NavbarLinksComponent />
+        <NavbarLinksComponent isMobileView={isMobileView} />
 
         <span>
-          <IconButton
-            disableRipple
-            disableFocusRipple
-            aria-label="Instagram Button"
-            target="_blank"
-            href="https://www.instagram.com/lote17/"
-            style={{ backgroundColor: "transparent" }}
-          >
-            <InstagramIcon className="social_media_icon_navbar" />
-          </IconButton>
+          {isMobileView ? (
+            <button className="navbar_icon_button">
+              <Menu className="navbar_icon" />
+            </button>
+          ) : (
+            <button
+              onClick={() => openInNewTab("https://www.instagram.com/lote17/")}
+              className="navbar_icon_button"
+            >
+              <InstagramIcon className="navbar_icon" />
+            </button>
+          )}
         </span>
       </div>
     </React.Fragment>

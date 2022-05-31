@@ -19,3 +19,17 @@
 .links:visited {
   color: black;
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 650px) {
+  .list {
+    display: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+}
+
+@media only screen and (min-width: 1220px) {
+}

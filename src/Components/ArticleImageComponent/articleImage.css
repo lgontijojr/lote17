@@ -3,3 +3,33 @@
   border-radius: 0.3em;
   box-shadow: 0em 0em 1em 0em #6f6f6f;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+  .article_image {
+    width: 80%;
+    border-radius: 0.3em;
+    box-shadow: 0em 0em 1em 0em #6f6f6f;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 650px) {
+  .article_image {
+    width: 50%;
+    align-items: center;
+    border-radius: 0.3em;
+    box-shadow: 0em 0em 1em 0em #6f6f6f;
+    margin-top: 3em;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .article_image {
+    width: 40%;
+    border-radius: 0.3em;
+    box-shadow: 0em 0em 1em 0em #6f6f6f;
+    margin-top: 3em;
+  }
+}

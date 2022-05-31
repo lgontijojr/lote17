@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./navbarLinksComponent.css";
 
-function NavbarLinksComponent() {
+function NavbarLinksComponent({ isMobileView }) {
   return (
     <React.Fragment>
       <li className="list">

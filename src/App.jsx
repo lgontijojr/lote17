@@ -11,6 +11,8 @@ import NavbarComponent from "./Components/NavbarComponent/NavbarComponent";
 
 import ScrollToTop from "./Util/util";
 
+import "./app.css";
+
 function App() {
   return (
     <React.Fragment>
