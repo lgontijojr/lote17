@@ -14,10 +14,15 @@
 
 .links {
   text-decoration: none;
+  color: black;
 }
 
 .links:visited {
   color: black;
+}
+
+.links:hover {
+  border-bottom: 1px solid;
 }
 
 .list_open {
