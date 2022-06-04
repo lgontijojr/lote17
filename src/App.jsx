@@ -9,7 +9,7 @@ import SobrePage from "./Pages/SobrePage";
 import Footer from "./Components/Footer/Footer";
 import NavbarComponent from "./Components/NavbarComponent/NavbarComponent";
 
-import ScrollToTop from "./Util/util";
+import { ScrollToTop } from "./utilities";
 
 import "./app.css";
 

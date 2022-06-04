@@ -2,41 +2,24 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import NavbarLinksComponent from "../NavbarLinksComponent/NavbarLinksComponent";
-
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Menu from "@material-ui/icons/Menu";
-
 import { logoImage1, logoImage2 } from "../../img/index";
+import * as helpers from "../../utilities";
 
 import "./navbarComponent.css";
 
-const getWindowWidth = () => {
-  const { innerWidth: width } = window;
-
-  return width;
-};
-
-const openInNewTab = (url) => {
-  window.open(url, "_blank", "noopener,noreferrer");
-};
-
-const getCurrentScrollPosition = () => {
-  const { scrollY } = window;
-
-  return scrollY;
-};
-
 function NavbarComponent() {
   const [logoImage, setLogoImage] = useState(
-    getWindowWidth() > 650 ? logoImage1 : logoImage2
+    helpers.getWindowWidth() > 650 ? logoImage1 : logoImage2
   );
   const [navBarClassname, setNavbarClassname] = useState("navbar");
-  const [windowWidth, setWindowWidth] = useState(getWindowWidth());
+  const [windowWidth, setWindowWidth] = useState(helpers.getWindowWidth());
   const [isMobileView, setMobileView] = useState(
-    getWindowWidth() < 650 && true
+    helpers.getWindowWidth() < 650 && true
   );
   const [currentScrollPosition, setCurrentScrollPosition] = useState(
-    getCurrentScrollPosition()
+    helpers.getCurrentScrollPosition()
   );
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -48,7 +31,7 @@ function NavbarComponent() {
 
   useEffect(() => {
     const handleWindowResize = () => {
-      setWindowWidth(getWindowWidth());
+      setWindowWidth(helpers.getWindowWidth());
 
       if (windowWidth < 650 && windowWidth < 750) {
         setMobileView(true);
@@ -66,7 +49,7 @@ function NavbarComponent() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setCurrentScrollPosition(getCurrentScrollPosition());
+      setCurrentScrollPosition(helpers.getCurrentScrollPosition());
 
       currentScrollPosition < 20
         ? setNavbarClassname("navbar")
@@ -102,7 +85,9 @@ function NavbarComponent() {
             </button>
           ) : (
             <button
-              onClick={() => openInNewTab("https://www.instagram.com/lote17/")}
+              onClick={() =>
+                helpers.openInNewTab("https://www.instagram.com/lote17/")
+              }
               className="navbar_icon_button"
             >
               <InstagramIcon className="navbar_icon" />
