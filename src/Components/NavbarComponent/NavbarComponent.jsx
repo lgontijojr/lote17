@@ -10,23 +10,17 @@ import * as helpers from "../../utilities";
 import "./navbarComponent.css";
 
 function NavbarComponent() {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(helpers.getWindowWidth());
   const [logoImage, setLogoImage] = useState(
     helpers.getWindowWidth() > 650 ? logoImage1 : logoImage2
   );
-  const [navBarClassname, setNavbarClassname] = useState("navbar");
-  const [windowWidth, setWindowWidth] = useState(helpers.getWindowWidth());
   const [isMobileView, setMobileView] = useState(
     helpers.getWindowWidth() < 650 && true
   );
-  const [currentScrollPosition, setCurrentScrollPosition] = useState(
-    helpers.getCurrentScrollPosition()
-  );
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleMobileMenu = (isOpen) => {
     setMobileMenuOpen(isOpen);
-
-    if (isOpen) setNavbarClassname("navbar_scroll");
   };
 
   useEffect(() => {
@@ -38,6 +32,7 @@ function NavbarComponent() {
         setLogoImage(logoImage2);
       } else {
         setMobileView(false);
+        setMobileMenuOpen(false);
         setLogoImage(logoImage1);
       }
     };
@@ -47,24 +42,10 @@ function NavbarComponent() {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, [windowWidth]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setCurrentScrollPosition(helpers.getCurrentScrollPosition());
-
-      currentScrollPosition < 20
-        ? setNavbarClassname("navbar")
-        : setNavbarClassname("navbar_scroll");
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [currentScrollPosition]);
-
   return (
     <React.Fragment>
-      <div className={navBarClassname}>
-        <span className="desktop_logo">
+      <div className="navbar">
+        <span>
           <NavLink to={{ pathname: "/" }}>
             <img className="logo_image" src={logoImage} alt="Logo" />
           </NavLink>

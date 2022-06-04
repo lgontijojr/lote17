@@ -8,43 +8,30 @@ function NavbarLinksComponent({ isMobileMenuOpen, handleMobileMenu }) {
 
   return (
     <React.Fragment>
-      <li className={`list_${menuState}`}>
+      <li
+        className={`list_${menuState}`}
+        onClick={() => handleMobileMenu(false)}
+      >
         <ul className="list_items">
-          <NavLink
-            className="links"
-            to={{ pathname: "/sobre" }}
-            onClick={() => handleMobileMenu(false)}
-          >
+          <NavLink className="links" to={{ pathname: "/sobre" }}>
             Sobre
           </NavLink>
         </ul>
 
         <ul className="list_items">
-          <NavLink
-            className="links"
-            to={{ pathname: "/chef" }}
-            onClick={() => handleMobileMenu(false)}
-          >
+          <NavLink className="links" to={{ pathname: "/chef" }}>
             Chef
           </NavLink>
         </ul>
 
         <ul className="list_items">
-          <NavLink
-            className="links"
-            to={{ pathname: "/menu" }}
-            onClick={() => handleMobileMenu(false)}
-          >
+          <NavLink className="links" to={{ pathname: "/menu" }}>
             Menu
           </NavLink>
         </ul>
 
         <ul className="list_items">
-          <NavLink
-            className="links"
-            to={{ pathname: "/reservas" }}
-            onClick={() => handleMobileMenu(false)}
-          >
+          <NavLink className="links" to={{ pathname: "/reservas" }}>
             Reservas
           </NavLink>
         </ul>
