@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 // TODO: Replace these icons with custom built
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -15,7 +17,9 @@ function Footer() {
 
       <hr className="footer_horizontal_line" />
 
-      <button className="reserve_button">Reservar</button>
+      <NavLink to={{ pathname: "/reservas" }}>
+        <button className="reserve_button">Reservar</button>
+      </NavLink>
 
       <div>
         <IconButton

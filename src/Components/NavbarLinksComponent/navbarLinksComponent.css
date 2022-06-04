@@ -1,4 +1,4 @@
-.list {
+.list_close {
   display: flex;
   justify-content: center;
   color: #14262e;
@@ -20,10 +20,29 @@
   color: black;
 }
 
+.list_open {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-right: 1em;
+  font-size: 1.8em;
+  text-align: center;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 650px) {
-  .list {
+  .list_close {
     display: none;
+  }
+
+  .list_open {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-right: 1em;
+    font-size: 1.8em;
+    text-align: center;
+    justify-content: center;
   }
 }
 

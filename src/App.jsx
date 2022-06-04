@@ -16,8 +16,8 @@ import "./app.css";
 function App() {
   return (
     <React.Fragment>
-      <div className="main">
-        <Router>
+      <Router>
+        <div className="main">
           <ScrollToTop />
           <Switch>
             <Route path="/" exact component={MainPage} />
@@ -27,9 +27,9 @@ function App() {
             <Route path="/reservas" exact component={ReservasPage} />
           </Switch>
           <NavbarComponent />
-        </Router>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </Router>
     </React.Fragment>
   );
 }

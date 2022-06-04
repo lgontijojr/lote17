@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import NavbarLinksComponent from "../NavbarLinksComponent/NavbarLinksComponent";
@@ -13,7 +13,7 @@ import "./navbarComponent.css";
 const getWindowWidth = () => {
   const { innerWidth: width } = window;
 
-  return { width };
+  return width;
 };
 
 const openInNewTab = (url) => {
@@ -23,26 +23,35 @@ const openInNewTab = (url) => {
 const getCurrentScrollPosition = () => {
   const { scrollY } = window;
 
-  return { scrollY };
+  return scrollY;
 };
 
 function NavbarComponent() {
-  const [logoImage, setLogoImage] = useState(logoImage1);
+  const [logoImage, setLogoImage] = useState(
+    getWindowWidth() > 650 ? logoImage1 : logoImage2
+  );
   const [navBarClassname, setNavbarClassname] = useState("navbar");
   const [windowWidth, setWindowWidth] = useState(getWindowWidth());
-  const [isMobileView, setMobileView] = useState();
+  const [isMobileView, setMobileView] = useState(
+    getWindowWidth() < 650 && true
+  );
   const [currentScrollPosition, setCurrentScrollPosition] = useState(
     getCurrentScrollPosition()
   );
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMobileMenu = (isOpen) => {
+    setMobileMenuOpen(isOpen);
+
+    if (isOpen) setNavbarClassname("navbar_scroll");
+  };
 
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(getWindowWidth());
 
-      if (windowWidth.width < 650) {
+      if (windowWidth < 650 && windowWidth < 750) {
         setMobileView(true);
-      }
-      if (windowWidth.width < 750) {
         setLogoImage(logoImage2);
       } else {
         setMobileView(false);
@@ -59,7 +68,7 @@ function NavbarComponent() {
     const handleScroll = () => {
       setCurrentScrollPosition(getCurrentScrollPosition());
 
-      currentScrollPosition.scrollY < 20
+      currentScrollPosition < 20
         ? setNavbarClassname("navbar")
         : setNavbarClassname("navbar_scroll");
     };
@@ -78,11 +87,17 @@ function NavbarComponent() {
           </NavLink>
         </span>
 
-        <NavbarLinksComponent isMobileView={isMobileView} />
+        <NavbarLinksComponent
+          isMobileMenuOpen={isMobileMenuOpen}
+          handleMobileMenu={handleMobileMenu}
+        />
 
         <span>
           {isMobileView ? (
-            <button className="navbar_icon_button">
+            <button
+              className="navbar_icon_button"
+              onClick={() => handleMobileMenu(!isMobileMenuOpen)}
+            >
               <Menu className="navbar_icon" />
             </button>
           ) : (

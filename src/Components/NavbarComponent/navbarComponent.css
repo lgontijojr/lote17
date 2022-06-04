@@ -38,18 +38,3 @@
   margin-top: 0.9em;
   cursor: pointer;
 }
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 650px) {
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 650px) {
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
-
-@media only screen and (min-width: 1220px) {
-}
