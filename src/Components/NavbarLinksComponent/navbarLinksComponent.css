@@ -22,7 +22,7 @@
 }
 
 .links:hover {
-  border-bottom: 1px solid;
+  border-bottom: 0.1px solid;
 }
 
 .list_open {
